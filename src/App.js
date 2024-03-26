@@ -56,7 +56,7 @@ function App() {
       setFlipped([...flipped, index]);
     }
   };
-  const gameOver = solved.length !== cards.length;
+  const gameOver = solved.length === cards.length;
 
   const resetGame = () => {
     setCards(genetratedCards());
@@ -74,12 +74,11 @@ function App() {
         {cards.map((img, index) => (
           <div onClick={() => handleClick(index)} key={index} className="card">
             {flipped.includes(index) || solved.includes(index) ? (
-              <img src={`${img}`} alt={img} width={100} height={100} />
+              <img className="images" src={`${img}`} alt={img} />
             ) : (
               <img
+                className="images"
                 src="data:image/jpeg;base64,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"
-                width={100}
-                height={100}
                 style={{ borderRadius: "4px" }}
                 alt="gradinet"
               />
