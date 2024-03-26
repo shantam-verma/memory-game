@@ -56,7 +56,7 @@ function App() {
       setFlipped([...flipped, index]);
     }
   };
-  const gameOver = solved.length !== cards.length;
+  const gameOver = solved.length === cards.length;
 
   const resetGame = () => {
     setCards(genetratedCards());
